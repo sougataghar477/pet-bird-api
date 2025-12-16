@@ -22,7 +22,7 @@ app.post("/showNewImage", async (req, res) => {
   console.log("Requested breed:", breed);
 
   try {
-    // 1️⃣ Specific breed
+    // Specific breed
     if (breed !== "random" && breed !== "other") {
       const images = await sql`
         SELECT *
@@ -44,7 +44,7 @@ app.post("/showNewImage", async (req, res) => {
       return res.json({ image: images[0].image_url });
     }
 
-    // 2️⃣ Random from all breeds
+    //  Random from all breeds
     else if (breed === "random") {
       const images = await sql`
         SELECT *
@@ -65,7 +65,7 @@ app.post("/showNewImage", async (req, res) => {
       return res.json({ image: images[0].image_url });
     }
 
-    // 3️⃣ Other (non-popular birds)
+    // Other (non-popular birds)
     else if (breed === "other") {
       console.log("other detected")  
       const countResult = await sql`

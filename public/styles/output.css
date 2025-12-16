@@ -1611,6 +1611,11 @@
       display: none;
     }
   }
+  .lg\:max-w-120 {
+    @media (width >= 64rem) {
+      max-width: calc(var(--spacing) * 120);
+    }
+  }
 }
 @layer base {
   :where(:root),:root:has(input.theme-controller[value=light]:checked),[data-theme=light] {

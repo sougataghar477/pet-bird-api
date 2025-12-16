@@ -44,15 +44,15 @@
            translate-x-full peer-checked:translate-x-0
            transition-transform duration-300"
   >
-    <li class="font-bold mb-4"><a class="active:font-black">Home</a></li>
-    <li class="font-bold mb-4"><a>Upload</a></li>
+    <li class="font-bold mb-4"><a aria-current="page" class="aria-[current=page]:font-black" href="/">Home</a></li>
+    <li class="font-bold mb-4"><a href="/upload">Upload</a></li>
   </ul>
 
 </div>
 
 
     <ul class="hidden md:flex gap-8 items-center">
-      <li><a href="/">Home</a></li>
+      <li><a aria-current="page" class="aria-[current=page]:font-black" href="/">Home</a></li>
       <li><a href="/upload">Upload Image</a></li>
       <li onclick="toggleTheme(event)">
         <button class="btn theme-selector cursor-pointer">🔆</button>
@@ -64,7 +64,7 @@
             <h2 class="text-3xl">A simple API that shares images of pet birds 🐦.Made for everyone who loves birds.</h2>
             <p class="text-xl my-6 italic tracking-wide">Read our <a href="#">docs</a> to see how to use our API.You can submit photo(s) of your cute pet bird here too <a href="#">by clicking here</a>.</p>
             <form class="w-full" onsubmit="fetchNewBirdImage(event)">
-                <select name="birdValue" class="select w-full mb-6">
+                <select name="birdValue" class="select w-full mb-6" required>
                     <option selected disabled>Select Bird</option>
                     <option  value="random">Random</option>
                     <option  value="other">Other</option>

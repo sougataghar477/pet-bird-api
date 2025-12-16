@@ -16,16 +16,43 @@
 </head>
 <body>
  <div class="mx-auto max-w-240 mt-8 p-4">
-  <nav class="flex justify-between items-center mb-8">
-    <h1 class="font-black  text-4xl">Pet Bird API</h1>
-    <div class="inline md:hidden text-2xl relative">
-      <label for="sidebar-toggler">☰</label>
-      <input id="sidebar-toggler" class="absolute left-0 -z-40 opacity-0" type="checkbox"/>
-    </div>
-    <ul class="hidden md:flex items-center gap-8">
+<nav class="flex justify-between mb-8 items-center">
+    <h1 class="font-black text-4xl">Pet Bird API</h1>
+<div class="md:hidden  p-4 z-40">
+
+  <!-- peer MUST be first -->
+  <input
+    id="menu"
+    type="checkbox"
+    class="peer hidden"
+  />
+
+  <!-- toggle icon -->
+  <label for="menu" class="text-2xl cursor-pointer z-50 relative peer-checked:hidden">
+    <span class="">☰</span>
+  </label>
+    <label for="menu" class="text-2xl cursor-pointer z-50 relative hidden peer-checked:inline">
+     
+    <span class="peer-checked:text-6xl">✕</span>
+  </label>
+
+  <!-- menu -->
+  <ul
+    class="fixed top-0 right-0 h-full w-2/3 bg-white shadow-2xl p-4
+           translate-x-full peer-checked:translate-x-0
+           transition-transform duration-300"
+  >
+    <li class="font-bold mb-4"><a class="visited:font-black" href="/">Home</a></li>
+    <li class="font-bold mb-4"><a aria-current="page" class="aria-[current=page]:font-black" class="visited:font-black" href="/upload">Upload</a></li>
+  </ul>
+
+</div>
+
+
+    <ul class="hidden md:flex gap-8 items-center">
       <li><a href="/">Home</a></li>
-      <li><a href="/upload">Upload Image</a></li>
-      <li class="" onclick="toggleTheme(event)">
+      <li><a aria-current="page" class="aria-[current=page]:font-black" href="/upload">Upload Image</a></li>
+      <li onclick="toggleTheme(event)">
         <button class="btn theme-selector cursor-pointer">🔆</button>
       </li>
     </ul>

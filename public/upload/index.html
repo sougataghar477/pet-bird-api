@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Birds Image API – Free Bird Images API for All</title>
+
+  <meta name="description" content="Birds Image API is a free public API that provides random bird images. Ideal for practice projects, demos, placeholders, and animal-themed applications.">
+
+  <meta name="keywords" content="birds api, bird image api, free bird api, pet bird api, animal image api, random bird images, public api, developer api">
+
+  <meta name="author" content="Birds Image API">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles//output.css"/>
+</head>
+<body>
+ <div class="mx-auto max-w-240 mt-8 p-4">
+  <nav class="flex justify-between">
+    <h1 class="font-black  text-4xl">Pet Bird API</h1>
+    <ul class="flex gap-8">
+      <li><a href="/">Home</a></li>
+      <li><a href="/upload">Upload Image</a></li>
+      <li class="theme-selector cursor-pointer" onclick="toggleTheme(event)">🔆</li>
+    </ul>
+  </nav>  
+    <div class="toast toast-top toast-end hidden notification-success">
+      <div class="alert alert-success text-white">
+        <span>Your image has been uploaded successfully.</span>
+      </div>
+    </div>
+    <div class="toast toast-top toast-end hidden notification-failure">
+      <div class="alert alert-error text-white">
+        <span>There was an error.</span>
+      </div>
+    </div>
+
+    <form class="mx-auto max-w-80 flex flex-col gap-4" onsubmit="uploadImage(event)" method="post" enctype="multipart/form-data">
+        <h2 class="text-3xl">Upload an image of a pet bird</h2>
+        <select onchange="detectOtherBreed(event)" required class="select" name="breed-value">
+            <option selected disabled>Select Bird</option>
+            <option  value="other">Other</option>
+            <option value="african-grey-parrot">African Grey Parrot</option>
+            <option value="alexandrine-parakeet">Alexandrine Parakeet</option>
+            <option value="amazon-parrot">Amazon Parrot</option>
+            <option value="bantam-chicken">Bantam Chicken</option>
+            <option value="budgerigar">Budgerigar</option>
+            <option value="button-quail">Button Quail</option>
+            <option value="canary">Canary</option>
+            <option value="chicken">Chicken</option>
+            <option value="cockatiel">Cockatiel</option>
+            <option value="cockatoo">Cockatoo</option>
+            <option value="conure">Conure</option>
+            <option value="diamond-dove">Diamond Dove</option>
+            <option value="domestic-fowl">Domestic Fowl</option>
+            <option value="eclectus-parrot">Eclectus Parrot</option>
+            <option value="fancy-pigeon">Fancy Pigeon</option>
+            <option value="gouldian-finch">Gouldian Finch</option>
+            <option value="green-cheeked-conure">Green-cheeked Conure</option>
+            <option value="hen">Hen</option>
+            <option value="indian-ringneck-parakeet">Indian Ringneck Parakeet</option>
+            <option value="java-finch">Java Finch</option>
+            <option value="lorikeet">Lorikeet</option>
+            <option value="lovebird">Lovebird</option>
+            <option value="macaw">Macaw</option>
+            <option value="mynah">Mynah</option>
+            <option value="pekin-bantam">Pekin Bantam</option>
+            <option value="plum-headed-parakeet">Plum-headed Parakeet</option>
+            <option value="polish-chicken">Polish Chicken</option>
+            <option value="quail">Quail</option>
+            <option value="quaker-parrot">Quaker Parrot</option>
+            <option value="ring-necked-dove">Ring-necked Dove</option>
+            <option value="rooster">Rooster</option>
+            <option value="senegal-parrot">Senegal Parrot</option>
+            <option value="silkie-chicken">Silkie Chicken</option>
+            <option value="society-finch">Society Finch</option>
+            <option value="sun-conure">Sun Conure</option>
+            <option value="zebra-finch">Zebra Finch</option>    
+        </select>
+        <input name="other-bird-name" type="text" class="hidden input border border-white other-breed" placeholder="If its not in the dropdown list ,please specify"/>
+        <input required class="file-input" type="file" name="bird-file"/>
+        <button class="btn btn-outline w-full" type="submit">Upload</button>
+    </form>
+ </div>
+<script src="../main.js"></script>
+</body>
+</html>   

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    
+<head>
+  <meta charset="UTF-8">
+
+  <title>Birds Image API – Free Bird Images API for Developers</title>
+
+  <meta name="description" content="Birds Image API is a free public API that provides random bird images. Ideal for practice projects, demos, placeholders, and animal-themed applications.">
+
+  <meta name="keywords" content="birds api, bird image api, free bird api, pet bird api, animal image api, random bird images, public api, developer api">
+
+  <meta name="author" content="Birds Image API">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/output.css"/>
+</head>
+
+<body>
+ <div class="mx-auto max-w-240 mt-8 p-4">
+    <nav class="flex justify-between">
+    <h1 class="font-black text-4xl">Pet Bird API</h1>
+    <ul class="flex gap-8">
+      <li><a href="/">Home</a></li>
+      <li><a href="/upload">Upload Image</a></li>
+      <li class="theme-selector cursor-pointer" onclick="toggleTheme(event)">🔆</li>
+    </ul>
+  </nav>
+    <div class="md:grid grid-cols-2 gap-32">
+        <div class="flex flex-col justify-center items-center">
+            <h2 class="text-3xl">A simple API that shares images of pet birds 🐦.Made for everyone who loves birds.</h2>
+            <p class="text-xl my-6 italic tracking-wide">Read our <a href="#">docs</a> to see how to use our API.You can submit photo(s) of your cute pet bird here too <a href="#">by clicking here</a>.</p>
+            <form class="w-full" onsubmit="fetchNewBirdImage(event)">
+                <select name="birdValue" class="select w-full mb-6">
+                    <option selected disabled>Select Bird</option>
+                    <option  value="random">Random</option>
+                    <option  value="other">Other</option>
+                    <option value="african-grey-parrot">African Grey Parrot</option>
+                    <option value="alexandrine-parakeet">Alexandrine Parakeet</option>
+                    <option value="amazon-parrot">Amazon Parrot</option>
+                    <option value="bantam-chicken">Bantam Chicken</option>
+                    <option value="budgerigar">Budgerigar</option>
+                    <option value="button-quail">Button Quail</option>
+                    <option value="canary">Canary</option>
+                    <option value="chicken">Chicken</option>
+                    <option value="cockatiel">Cockatiel</option>
+                    <option value="cockatoo">Cockatoo</option>
+                    <option value="conure">Conure</option>
+                    <option value="diamond-dove">Diamond Dove</option>
+                    <option value="domestic-fowl">Domestic Fowl</option>
+                    <option value="eclectus-parrot">Eclectus Parrot</option>
+                    <option value="fancy-pigeon">Fancy Pigeon</option>
+                    <option value="gouldian-finch">Gouldian Finch</option>
+                    <option value="green-cheeked-conure">Green-cheeked Conure</option>
+                    <option value="hen">Hen</option>
+                    <option value="indian-ringneck-parakeet">Indian Ringneck Parakeet</option>
+                    <option value="java-finch">Java Finch</option>
+                    <option value="lorikeet">Lorikeet</option>
+                    <option value="lovebird">Lovebird</option>
+                    <option value="macaw">Macaw</option>
+                    <option value="mynah">Mynah</option>
+                    <option value="pekin-bantam">Pekin Bantam</option>
+                    <option value="plum-headed-parakeet">Plum-headed Parakeet</option>
+                    <option value="polish-chicken">Polish Chicken</option>
+                    <option value="quail">Quail</option>
+                    <option value="quaker-parrot">Quaker Parrot</option>
+                    <option value="ring-necked-dove">Ring-necked Dove</option>
+                    <option value="rooster">Rooster</option>
+                    <option value="senegal-parrot">Senegal Parrot</option>
+                    <option value="silkie-chicken">Silkie Chicken</option>
+                    <option value="society-finch">Society Finch</option>
+                    <option value="sun-conure">Sun Conure</option>
+                    <option value="zebra-finch">Zebra Finch</option>
+                </select>
+                <button type="submit" class="btn btn-outline w-full">Show a new image</button>
+                <p class="hidden mt-2 text-red-500 font-black no-image-alert">No Images found</p>
+            </form>
+        </div>
+        <div class="max-w-120 mt-10 md:m-0">
+            <img class="w-full rounded-lg" src="https://images.unsplash.com/photo-1600098398998-b76eef086036?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGV0JTIwcGFycm90fGVufDB8fDB8fHww"/>
+        </div>
+    </div>
+ </div>
+ <span class="hidden loading loading-spinner loading-xl absolute top-1/2 left-1/2 -translate-1/2 loader"></span>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "pet-birds-api",
+  "version": "1.0.0",
+  "description": "An image sharing API for pet bird owners",
+  "keywords": [
+    "pet",
+    "animals",
+    "birds"
+  ],
+  "license": "ISC",
+  "author": "Sougata Ghar",
+  "type": "commonjs",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx @tailwindcss/cli -i ./public/styles/input.css -o ./public/styles/output.css"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.87.1",
+    "daisyui": "^5.5.14",
+    "dotenv": "^17.2.3",
+    "multer": "^2.0.2",
+    "postgres": "^3.4.7"
+  }
+}

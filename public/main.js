@@ -4,24 +4,25 @@ const loader = document.querySelector(".loader");
 const notificationSuccess = document.querySelector(".notification-success");
 const notificationFailure = document.querySelector(".notification-failure");
 const themeSelector = document.querySelector(".theme-selector");
-const isThemePresent = localStorage.getItem("theme");
-let isDark = document.documentElement.dataset.theme==="dark";
-if(isThemePresent){
-   document.documentElement.setAttribute("data-theme",isThemePresent)
-   themeSelector.textContent=isDark?'🔆':'🌙';
-}
+const root = document.documentElement;
+const savedTheme = localStorage.getItem("theme");
+const theme = savedTheme ?? "light"; // default
+
+root.dataset.theme = theme;
+themeSelector.textContent = theme === "dark" ? "🌙" : "🔆";
+
 const toggleTheme = (event) => {
-let isDark = document.documentElement.dataset.theme==="dark";
-console.log(isDark);
-if(!isThemePresent){
-    localStorage.setItem("theme",document.documentElement.dataset.theme)
-}
-else{
-    localStorage.setItem("theme",isDark?"light":"dark"); 
-}
-  document.documentElement.setAttribute("data-theme", isDark?"light":"dark");
-  event.target.textContent=isDark?'🌙':'🔆';
+  const currentTheme = root.dataset.theme;
+  const nextTheme = currentTheme === "dark" ? "light" : "dark";
+
+  // Apply
+  root.dataset.theme = nextTheme;
+  localStorage.setItem("theme", nextTheme);
+
+  // Emoji reflects NEW theme
+  event.target.textContent = nextTheme === "dark" ? "🌙" : "🔆";
 };
+
 
 function detectOtherBreed(event){
     if(event.target.value==="other"){

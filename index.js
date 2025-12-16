@@ -3,7 +3,7 @@ const sql = require("./db");
 const supabase = require("./storage");
 const multer = require("multer");
 const popularBirds = require("./popularBirds.json");
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 const upload = multer({
@@ -150,6 +150,6 @@ app.post("/uploadNewImage", upload.single("bird-file"), async (req, res) => {
 });
 
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+app.listen(PORT, () => {
+  console.log("Server running on "+PORT);
 });

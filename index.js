@@ -67,29 +67,32 @@ app.post("/showNewImage", async (req, res) => {
 
     // Other (non-popular birds)
     else if (breed === "other") {
-      console.log("other detected")  
-      const countResult = await sql`
-      SELECT COUNT(*) AS count
-      FROM saved_images
-      WHERE breed_name != ALL(${popularBirds})
-      `;
-      
-      const count = Number(countResult[0].count);
+      console.log("other detected");
 
-      if (count === 0) {
-        return res.json({ image: "No Image Found" });
-      }
-      //Filter out all values that are not in the array
       const images = await sql`
         SELECT *
         FROM saved_images
-        WHERE breed_name != ALL(${popularBirds}) 
-        OFFSET FLOOR(RANDOM() * ${count})
+        WHERE breed_name != ALL(${popularBirds})
+        OFFSET FLOOR(
+          RANDOM() * GREATEST(
+            (
+              SELECT COUNT(*)
+              FROM saved_images
+              WHERE breed_name != ALL(${popularBirds})
+            ),
+            1
+          )
+        )
         LIMIT 1
       `;
 
+      if (images.length === 0) {
+        return res.json({ image: "No Image Found" });
+      }
+
       return res.json({ image: images[0].image_url });
     }
+
 
     // fallback
     return res.json({ image: "Invalid breed option" });
